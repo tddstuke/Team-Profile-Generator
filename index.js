@@ -3,6 +3,8 @@ const ListPrompt = require("inquirer/lib/prompts/list");
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
+const genertateHTML = require("./src/page-template");
+const writeFile = require("./utils/generate-site");
 const teamMembers = [];
 
 // create function to get manager prompts
@@ -162,7 +164,7 @@ const addEmployee = () => {
       }
       teamMembers.push(employee);
       if (confirmAdd) {
-        addEmployee();
+        return addEmployee();
       } else {
         console.log(teamMembers);
 
@@ -170,15 +172,16 @@ const addEmployee = () => {
       }
     });
 };
-addManager().then(addEmployee);
-// .then((teamMembers) => {
-//   return genertateHTML(teamMembers);
-// })
+addManager()
+  .then(addEmployee)
+  .then((teamMembers) => {
+    return genertateHTML(teamMembers);
+  })
 
-// .then((HTMLdata) => {
-//   return writeFile(HTMLdata);
-// })
+  .then((HTMLdata) => {
+    return writeFile(HTMLdata);
+  })
 
-// .catch((err) => {
-//   console.log(err);
-// });
+  .catch((err) => {
+    console.log(err);
+  });
