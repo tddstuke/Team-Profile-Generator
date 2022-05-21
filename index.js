@@ -1,4 +1,5 @@
 const inquirer = require("inquirer");
+const ListPrompt = require("inquirer/lib/prompts/list");
 const Manager = require("./lib/Manager");
 
 const addManager = () => {
@@ -38,7 +39,7 @@ const addManager = () => {
           if (emailInput) {
             return true;
           } else {
-            console.log("Please enter a valide email address!");
+            console.log("Please enter a valid email address!");
           }
         },
       },
@@ -61,4 +62,65 @@ const addManager = () => {
     });
 };
 
-addManager();
+const addEmployee = () => {
+  return inquirer.prompt([
+    {
+      type: "list",
+      name: "role",
+      message: "What is the employees role?",
+      choices: ["Engineer", "Intern"],
+    },
+    {
+      type: "input",
+      name: "name",
+      message: "What is the employee's name?",
+      validate: (nameInput) => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log("Please enter employee's name!");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "ID",
+      message: "What is the employee's ID?",
+      validate: (IDinput) => {
+        if (IDinput) {
+          return true;
+        } else {
+          console.log("Please enter employee's ID number!");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "What is the employee's email address?",
+      validate: (emailInput) => {
+        if (emailInput) {
+          return true;
+        } else {
+          console.log("Please enter a valid email address!");
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "github",
+      message: "What is the engineer's GitHub username?",
+      when: (input) => input.role === "Engineer",
+      validate: (githubInput) => {
+        if (githubInput) {
+          return true;
+        } else {
+          console.log("Please enter a GitHub username!");
+        }
+      },
+    },
+  ]);
+};
+addManager().then(addEmployee);
