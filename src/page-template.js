@@ -1,3 +1,19 @@
+const managerCardCreater = (Manager) => {
+  const { name, ID, email, number } = Manager;
+  return `
+    <div class = "card">
+        <div class = "card-content has-background-link ">
+        <p class ="title has-text-white" >${name}</p>
+        <p class = "subtitle has-text-white">
+        <span class = "icon">
+        <i class="fa-solid fa-mug-hot"></i>
+        </span>  Manager</p>
+    </div>
+
+
+        `;
+};
+
 module.exports = (templateData) => {
   const [Manager, ...employees] = templateData;
 
@@ -8,15 +24,21 @@ module.exports = (templateData) => {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
       <title>My Team Profile</title>
-    </head>
+    </head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     
     <body>
     <header>
-    <div class = "is-flex is-justify-content-center has-background-danger has-text-primary-light">
+    <div class = "is-flex is-justify-content-center has-background-danger has-text-white is-size-2 p-5 mb-6">
     <h1>My Team<h1>
+    </div>
+    <div class = "columns is-centered">
+      <div class = "column is-one-third">
+    ${managerCardCreater(Manager)}
+        </div>
     </div>
     `;
 };
