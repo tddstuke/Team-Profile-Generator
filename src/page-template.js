@@ -8,10 +8,14 @@ const managerCardCreater = (Manager) => {
         <span class = "icon">
         <i class="fa-solid fa-mug-hot"></i>
         </span>  Manager</p>
+        </div>
+        <div class = "card-content has-background-link-light">
+        <p class = "p-2 mb-1 mt-4 box">ID: ${ID}</p>
+        <p class = "p-2 my-1 box">Email: ${email}</p>
+        <p class = "p-2 mt-1 mb-4 box">Office Number: ${number}</p>
+        </div>
     </div>
-
-
-        `;
+    `;
 };
 
 module.exports = (templateData) => {
@@ -36,7 +40,7 @@ module.exports = (templateData) => {
     <h1>My Team<h1>
     </div>
     <div class = "columns is-centered">
-      <div class = "column is-one-third">
+      <div class = "column is-one-quarter">
     ${managerCardCreater(Manager)}
         </div>
     </div>
