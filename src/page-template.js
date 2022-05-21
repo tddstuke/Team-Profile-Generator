@@ -1,4 +1,4 @@
-const managerCardCreater = (Manager) => {
+const managerCardCreator = (Manager) => {
   const { name, ID, email, number } = Manager;
   return `
     <div class = "card">
@@ -18,9 +18,62 @@ const managerCardCreater = (Manager) => {
     `;
 };
 
-module.exports = (templateData) => {
-  const [Manager, ...employees] = templateData;
+const internCardCreator = (Intern) => {
+  const { name, ID, email, school } = Intern;
+  return `
+    <div class = "card">
+        <div class = "card-content has-background-link ">
+        <p class ="title has-text-white" >${name}</p>
+        <p class = "subtitle has-text-white">
+        <span class = "icon">
+        <i class="fa-solid fa-graduation-cap"></i>
+        </span>  Intern</p>
+        </div>
+        <div class = "card-content has-background-link-light">
+        <p class = "p-2 mb-1 mt-4 box">ID: ${ID}</p>
+        <p class = "p-2 my-1 box">Email: ${email}</p>
+        <p class = "p-2 mt-1 mb-4 box">School: ${school}</p>
+        </div>
+    </div>
+    `;
+};
+const engineerCardCreator = (Engineer) => {
+  const { name, ID, email, github } = Engineer;
+  return `
+    <div class = "card">
+        <div class = "card-content has-background-link ">
+        <p class ="title has-text-white" >${name}</p>
+        <p class = "subtitle has-text-white">
+        <span class = "icon">
+        <i class="fa-solid fa-glasses"></i>
+        </span>  Engineer
+        </div>
+        <div class = "card-content has-background-link-light">
+        <p class = "p-2 mb-1 mt-4 box">ID: ${ID}</p>
+        <p class = "p-2 my-1 box">Email: ${email}</p>
+        <p class = "p-2 mt-1 mb-4 box">Office Number: ${github}</p>
+        </div>
+    </div>
+    `;
+};
 
+const employeeCardSeparator = (employees) => {
+  employees.forEach((employee) => {
+    const role = employee.getRole();
+    if (role === "Manager") {
+      console.log(employee);
+      managerCardCreator(employee);
+    }
+    if (role === "Engineer") {
+      engineerCardCreator(employee);
+    }
+    if (role === "Intern") {
+      internCardCreator(employee);
+    }
+  });
+};
+module.exports = (templateData) => {
+  console.log(templateData);
   return `
   <!DOCTYPE html>
     <html lang="en">
@@ -41,7 +94,7 @@ module.exports = (templateData) => {
     </div>
     <div class = "columns is-centered">
       <div class = "column is-one-quarter">
-    ${managerCardCreater(Manager)}
+      ${employeeCardSeparator(templateData)}
         </div>
     </div>
     `;
