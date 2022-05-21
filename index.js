@@ -3,6 +3,7 @@ const ListPrompt = require("inquirer/lib/prompts/list");
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
+const teamMembers = [];
 
 // create function to get manager prompts
 const addManager = () => {
@@ -63,15 +64,12 @@ const addManager = () => {
       const manager = new Manager(name, ID, email, number);
 
       console.log(manager);
-      return manager;
+      teamMembers.push(manager);
     });
 };
 
 // create function to get employee prompts including roles
-const addEmployee = (teamMembers) => {
-  if (!teamMembers) {
-    teamMembers = [];
-  }
+const addEmployee = () => {
   return inquirer
     .prompt([
       {
@@ -164,7 +162,7 @@ const addEmployee = (teamMembers) => {
       }
       teamMembers.push(employee);
       if (confirmAdd) {
-        addEmployee(teamMembers);
+        addEmployee();
       } else {
         console.log(teamMembers);
 
@@ -173,3 +171,14 @@ const addEmployee = (teamMembers) => {
     });
 };
 addManager().then(addEmployee);
+// .then((teamMembers) => {
+//   return genertateHTML(teamMembers);
+// })
+
+// .then((HTMLdata) => {
+//   return writeFile(HTMLdata);
+// })
+
+// .catch((err) => {
+//   console.log(err);
+// });
