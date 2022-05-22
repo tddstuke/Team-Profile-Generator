@@ -175,6 +175,7 @@ const addEmployee = () => {
 addManager()
   .then(addEmployee)
   .then((teamMembers) => {
+    console.log(teamMembers);
     return genertateHTML(teamMembers);
   })
 

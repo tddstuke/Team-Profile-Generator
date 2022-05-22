@@ -1,6 +1,7 @@
 const managerCardCreator = (Manager) => {
   const { name, ID, email, number } = Manager;
   return `
+  <div class = "column is-one-quarter">
     <div class = "card">
         <div class = "card-content has-background-link ">
         <p class ="title has-text-white" >${name}</p>
@@ -14,13 +15,16 @@ const managerCardCreator = (Manager) => {
         <p class = "p-2 my-1 box">Email: ${email}</p>
         <p class = "p-2 mt-1 mb-4 box">Office Number: ${number}</p>
         </div>
+        </div>
     </div>
     `;
 };
 
 const internCardCreator = (Intern) => {
   const { name, ID, email, school } = Intern;
+  console.log(Intern);
   return `
+  <div class = "column is-one-quarter">
     <div class = "card">
         <div class = "card-content has-background-link ">
         <p class ="title has-text-white" >${name}</p>
@@ -34,12 +38,15 @@ const internCardCreator = (Intern) => {
         <p class = "p-2 my-1 box">Email: ${email}</p>
         <p class = "p-2 mt-1 mb-4 box">School: ${school}</p>
         </div>
+        </div>
     </div>
     `;
 };
 const engineerCardCreator = (Engineer) => {
+  console.log(Engineer);
   const { name, ID, email, github } = Engineer;
   return `
+  <div class = "column is-one-quarter">
     <div class = "card">
         <div class = "card-content has-background-link ">
         <p class ="title has-text-white" >${name}</p>
@@ -54,23 +61,25 @@ const engineerCardCreator = (Engineer) => {
         <p class = "p-2 mt-1 mb-4 box">Office Number: ${github}</p>
         </div>
     </div>
+    </div>
     `;
 };
 
 const employeeCardSeparator = (employees) => {
-  employees.forEach((employee) => {
+  const employeesTemplates = employees.map((employee) => {
     const role = employee.getRole();
     if (role === "Manager") {
       console.log(employee);
-      managerCardCreator(employee);
+      return managerCardCreator(employee);
     }
     if (role === "Engineer") {
-      engineerCardCreator(employee);
+      return engineerCardCreator(employee);
     }
     if (role === "Intern") {
-      internCardCreator(employee);
+      return internCardCreator(employee);
     }
   });
+  return employeesTemplates.join("");
 };
 module.exports = (templateData) => {
   console.log(templateData);
@@ -93,9 +102,9 @@ module.exports = (templateData) => {
     <h1>My Team<h1>
     </div>
     <div class = "columns is-centered">
-      <div class = "column is-one-quarter">
+     
       ${employeeCardSeparator(templateData)}
-        </div>
+        
     </div>
     `;
 };
