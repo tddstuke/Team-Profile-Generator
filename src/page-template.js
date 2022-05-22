@@ -2,22 +2,22 @@ const managerCardCreator = (Manager) => {
   const { name, ID, email, number } = Manager;
 
   return `
-  <div class = "column is-one-quarter">
+  <div class = "column is-one-quarter m-4">
     <div class = "card">
-        <div class = "card-content has-background-link ">
-        <p class ="title has-text-white" >${name}</p>
-        <p class = "subtitle has-text-white">
-        <span class = "icon">
-        <i class="fa-solid fa-mug-hot"></i>
-        </span>  Manager</p>
+        <div class = "card-content has-background-link">
+          <p class ="title has-text-white" >${name}</p>
+          <p class = "subtitle has-text-white">
+          <span class = "icon">
+          <i class="fa-solid fa-mug-hot"></i>
+          </span>  Manager</p>
         </div>
         <div class = "card-content has-background-link-light">
-        <p class = "p-2 mb-1 mt-4 box">ID: ${ID}</p>
-        <p class = "p-2 my-1 box">Email: ${email}</p>
-        <p class = "p-2 mt-1 mb-4 box">Office Number: ${number}</p>
-        </div>
+          <p class = "p-2 mb-1 mt-4 box">ID: ${ID}</p>
+          <p class = "p-2 my-1 box">Email: <a href = "mailto: ${email}">${email}</a></p>
+          <p class = "p-2 mt-1 mb-4 box">Office Number: ${number}</p>
         </div>
     </div>
+  </div>
     `;
 };
 
@@ -25,41 +25,41 @@ const internCardCreator = (Intern) => {
   const { name, ID, email, school } = Intern;
   console.log(Intern);
   return `
-  <div class = "column is-one-quarter">
+  <div class = "column is-one-quarter m-4">
     <div class = "card">
-        <div class = "card-content has-background-link ">
-        <p class ="title has-text-white" >${name}</p>
-        <p class = "subtitle has-text-white">
-        <span class = "icon">
-        <i class="fa-solid fa-graduation-cap"></i>
-        </span>  Intern</p>
+        <div class = "card-content has-background-link">
+          <p class ="title has-text-white" >${name}</p>
+          <p class = "subtitle has-text-white">
+          <span class = "icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+          </span>  Intern</p>
         </div>
         <div class = "card-content has-background-link-light">
-        <p class = "p-2 mb-1 mt-4 box">ID: ${ID}</p>
-        <p class = "p-2 my-1 box">Email: ${email}</p>
-        <p class = "p-2 mt-1 mb-4 box">School: ${school}</p>
+          <p class = "p-2 mb-1 mt-4 box">ID: ${ID}</p>
+          <p class = "p-2 my-1 box">Email: <a href = "mailto: ${email}">${email}</a></p>
+          <p class = "p-2 mt-1 mb-4 box">School: ${school}</p>
         </div>
-        </div>
-    </div>
+      </div>
+  </div>
     `;
 };
 const engineerCardCreator = (Engineer) => {
   console.log(Engineer);
   const { name, ID, email, github } = Engineer;
   return `
-  <div class = "column is-one-quarter">
+  <div class = "column is-one-quarter m-4">
     <div class = "card">
-        <div class = "card-content has-background-link ">
+        <div class = "card-content has-background-link">
         <p class ="title has-text-white" >${name}</p>
         <p class = "subtitle has-text-white">
         <span class = "icon">
         <i class="fa-solid fa-glasses"></i>
-        </span>  Engineer
+        </span>  Engineer</p>
         </div>
         <div class = "card-content has-background-link-light">
         <p class = "p-2 mb-1 mt-4 box">ID: ${ID}</p>
-        <p class = "p-2 my-1 box">Email: ${email}</p>
-        <p class = "p-2 mt-1 mb-4 box">Office Number: ${github}</p>
+        <p class = "p-2 my-1 box">Email: <a href = "mailto: ${email}">${email}</a></p>
+        <p class = "p-2 mt-1 mb-4 box">GitHub: <a href = "https://github.com/${github}">${github}</a></p>
         </div>
     </div>
     </div>
@@ -102,10 +102,12 @@ module.exports = (templateData) => {
     <div class = "is-flex is-justify-content-center has-background-danger has-text-white is-size-2 p-5 mb-6">
     <h1>My Team<h1>
     </div>
-    <div class = "columns is-centered">
+    </header>
+    <div class = "columns is-centered is-multiline">
      
       ${employeeCardSeparator(templateData)}
         
     </div>
+    </body>
     `;
 };
