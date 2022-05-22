@@ -1,5 +1,8 @@
 const managerCardCreator = (Manager) => {
+  console.log(Manager.getName());
+
   const { name, ID, email, number } = Manager;
+
   return `
   <div class = "column is-one-quarter">
     <div class = "card">
