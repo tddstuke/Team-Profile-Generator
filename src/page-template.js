@@ -1,6 +1,4 @@
 const managerCardCreator = (Manager) => {
-  console.log(Manager.getName());
-
   const { name, ID, email, number } = Manager;
 
   return `
