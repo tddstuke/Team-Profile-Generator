@@ -20,11 +20,11 @@
 
 ## Link to HTML <a id = "link-to-html-"></a>
 
-Here is a link to a previously generated HTML
+Here is a link to a previously generated [HTML](dist/index.html)
 
 ## Walkthrough <a id = "walkthrough-"></a>
 
-Here is a link to the walkthrough
+Here is a link to the [walkthrough](https://drive.google.com/file/d/1g7KJynlW7_zrxyhkrk_1pD9bmOAuB1gm/view)
 
 ## License <a id = "license-"></a>
 
