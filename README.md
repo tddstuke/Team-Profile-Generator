@@ -26,7 +26,8 @@ Here is a link to a previously generated [HTML](dist/index.html)
 ## Walkthrough <a id = "walkthrough-"></a>
 
 Here is a link to the [walkthrough](https://drive.google.com/file/d/1g7KJynlW7_zrxyhkrk_1pD9bmOAuB1gm/view)
-[Screenshot (20)](https://user-images.githubusercontent.com/98231816/170383611-cea31ed3-6fc1-4d61-9bae-99b5b3973bf2.png)
+
+[Screenshot](https://user-images.githubusercontent.com/98231816/170383611-cea31ed3-6fc1-4d61-9bae-99b5b3973bf2.png)
 
 
 ## License <a id = "license-"></a>
