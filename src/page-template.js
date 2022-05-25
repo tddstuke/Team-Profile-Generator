@@ -59,7 +59,7 @@ const engineerCardCreator = (Engineer) => {
         <div class = "card-content has-background-link-light">
         <p class = "p-2 mb-1 mt-4 box">ID: ${ID}</p>
         <p class = "p-2 my-1 box">Email: <a href = "mailto: ${email}">${email}</a></p>
-        <p class = "p-2 mt-1 mb-4 box">GitHub: <a href = "https://github.com/${github}">${github}</a></p>
+        <p class = "p-2 mt-1 mb-4 box">GitHub: <a href = "https://github.com/${github} target="_blank">${github}</a></p>
         </div>
     </div>
     </div>
